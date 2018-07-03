@@ -1,0 +1,1 @@
+RESTORE DATABASE ' + $dbname + ' WITH RECOVERY

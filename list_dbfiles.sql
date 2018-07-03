@@ -1,0 +1,10 @@
+EXEC sp_MSForEachDB 'SELECT CONVERT(char(100), SERVERPROPERTY(''Servername'')) AS Server,
+''?'' as DatabaseName,
+[?]..sysfiles.size, 
+[?]..sysfiles.status,
+[?]..sysfiles.name, 
+[?]..sysfiles.filename,
+convert(sysname,DatabasePropertyEx(''?'',''Status'')) as Status,
+convert(sysname,DatabasePropertyEx(''?'',''Updateability'')) as Updateability,
+convert(sysname,DatabasePropertyEx(''?'',''UserAccess'')) as User_Access,
+convert(sysname,DatabasePropertyEx(''?'',''Recovery'')) as Recovery From [?]..sysfiles' 
